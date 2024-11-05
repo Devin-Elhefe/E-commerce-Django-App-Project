@@ -18,6 +18,7 @@ urlpatterns = [
     path('cart/update/<int:cart_item_id>/', views.update_cart, name='update_cart'),
     path('cart/remove/<int:cart_item_id>/', views.remove_from_cart, name='remove_from_cart'),
     path('checkout/', views.checkout, name='checkout'),
+    path('golf-courses/', views.find_golf_courses, name='golf_courses'),
 ]
 
 if settings.DEBUG:

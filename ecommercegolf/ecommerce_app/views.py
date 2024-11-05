@@ -4,6 +4,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.admin.views.decorators import staff_member_required
 
 from django import forms
+import googlemaps
 
 from django.contrib.auth.decorators import login_required
 
@@ -72,7 +73,7 @@ def cart(request):
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
     cart, created = Cart.objects.get_or_create(user=request.user)
-    # quantity = int(request.POST.get('quantity', 1))
+   
     
     # adding products or updating qty in cart
     cart_item, item_created = CartItem.objects.get_or_create(cart=cart, product=product)
@@ -110,7 +111,7 @@ def checkout(request):
         for item in cart_items:
             OrderItem.objects.create(order=order, product=item.product, quantity=item.quantity, price_at_purchase=item.product.price)
         cart.items.all().delete() # clear the cart after checkout
-        return redirect('order_history') # redirect to order history page after checkout
+        return redirect('order_history') 
     return render(request, 'cart/checkout.html', {'cart_items': cart_items, 'total_price': total_price})
     
     
@@ -134,4 +135,44 @@ def create_product(request):
     else:
         form = ProductForm()
     return render(request, 'product/create_product.html', {'form': form})
+
+
+# Google Places API info
+
+def find_golf_courses(request):
+    gmaps = googlemaps.Client(key='AIzaSyBfF5ZasPX6y2IViJOO87ad84P63giNPGI')
+
+    golf_courses = None
+
+    
+    if 'location' in request.GET:
+        user_location = request.GET['location']
+
+        
+        geocode_result = gmaps.geocode(user_location)
+        
+        if geocode_result:
+            
+            lat_lng = geocode_result[0]['geometry']['location']
+            location = (lat_lng['lat'], lat_lng['lng'])
+
+            
+            places_result = gmaps.places_nearby(
+                location=location,
+                radius=50000,  
+                type='golf_course',
+                keyword='golf course' # need keyword to search golf courses only
+            )
+
+            
+            golf_courses = []
+            for place in places_result.get('results', []):
+                golf_courses.append({
+                    'name': place['name'],
+                    'address': place.get('vicinity', ''),
+                    'rating': place.get('rating', 0),
+                })
+
+    context = {'golf_courses': golf_courses}
+    return render(request, 'golf_courses.html', context)
 

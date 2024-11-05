@@ -3,6 +3,7 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+    
     <h1>Featured Products</h1>
     <div class="featured-products">
         {% for product in featured_products %}
@@ -18,5 +19,8 @@
         {% empty %}
             <p>No featured products available at the moment.</p>
         {% endfor %}
+    </div>
+    <div class="button-container">
+        <a href="{% url 'golf_courses' %}" class="stylish-button">Find Nearby Golf Courses</a>
     </div>
 {% endblock %}

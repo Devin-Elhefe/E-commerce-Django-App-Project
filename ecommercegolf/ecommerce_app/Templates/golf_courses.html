@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Find Golf Courses{% endblock %}
+
+{% block content %}
+    <h1>Find Nearby Golf Courses</h1>
+
+    <form method="GET" action="{% url 'golf_courses' %}">
+        <label for="location">Enter Zip Code, City, or State:</label>
+        <input type="text" name="location" id="location" required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if golf_courses %}
+        <h2>Results:</h2>
+        <ul>
+            {% for course in golf_courses %}
+                <li>
+                    <h3>{{ course.name }}</h3>
+                    <p>Address: {{ course.address }}</p>
+                    <p>Rating: {{ course.rating }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% elif golf_courses is not none %}
+        <p>No golf courses found for this location.</p>
+    {% endif %}
+{% endblock %}

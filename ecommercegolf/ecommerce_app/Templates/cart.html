@@ -17,5 +17,7 @@
     {% endfor %}
 </div>
 <p>Total: ${{ total_price }}</p>
-<a href="{% url 'checkout' %}">Proceed to Checkout</a>
+<div class="checkout-button-container">
+    <a href="{% url 'checkout' %}" class="checkout-button">Proceed to Checkout</a>
+</div>
 {% endblock content %}

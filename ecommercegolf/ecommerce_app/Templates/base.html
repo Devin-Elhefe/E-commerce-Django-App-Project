@@ -6,16 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}DG Golf Shop{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% block extra_scripts %}{% endblock %} 
 </head>
 <body>
     <header>
         <nav>
+            <div class="navbar-brand">DG's Golf Shop</div>
             <a href="{% url 'home' %}">HOME</a>
             <a href="{% url 'product_list' %}">SHOP</a>
             <a href="{% url 'cart' %}">CART</a>
             <a href="{% url 'order_history' %}">Order History</a>
             {% if user.is_authenticated %}
                 <a href="{% url 'logout' %}">Logout</a>
+                
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
                 <a href="{% url 'register' %}">Register</a>

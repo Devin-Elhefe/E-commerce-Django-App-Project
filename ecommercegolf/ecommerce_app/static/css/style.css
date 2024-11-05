@@ -1,8 +1,8 @@
 header nav {
     display: flex;
-    gap: 10px; 
-    justify-content: center;  
-    padding: 10px;
+    align-items: center;
+    justify-content: space-between; 
+    padding: 10px 20px;
     background-color: #333;
 }
 
@@ -19,6 +19,13 @@ header nav a {
 header nav a:hover {
     background-color: white;  
     color: #333;  
+}
+
+.navbar-brand {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;      
+    text-decoration: none;
 }
 
 body {
@@ -41,12 +48,12 @@ h1 {
 }
 
 .product-item h2 {
-    color: rgb(239, 239, 246);  /* Set the text color to white */
+    color: rgb(239, 239, 246);  
     text-shadow: 
         -1px -1px 0 #000,  
         1px -1px 0 #000, 
         -1px 1px 0 #000, 
-        1px 1px 0 #000; /* Creates a black outline around the text */
+        1px 1px 0 #000; 
     font-size: 1.2em;
     margin: 10px 0;
 }
@@ -112,3 +119,46 @@ button {
 button:hover {
     background-color: #218838;
 }
+
+.button-container {
+    text-align: center;  
+    margin: 20px 0;     
+}
+
+
+.stylish-button {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: #fff;                   
+    background-color: #007bff;     
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;         
+    cursor: pointer;
+    transition: background-color 0.3s ease;  
+}
+
+
+.stylish-button:hover {
+    background-color: #0056b3;     
+}
+
+.checkout-button {
+    padding: 0.5em 1em;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.checkout-button-container {      
+    margin-top: 20px;
+}
+
+.checkout-button:hover {
+    background-color: #218838;   
+          
+}
+
