@@ -1,3 +1,0 @@
-[packages]
-django = "*"
-psycopg2-binary = "*"
