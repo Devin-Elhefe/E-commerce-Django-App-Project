@@ -11,6 +11,7 @@ gunicorn = "*"
 dj-database-url = "*"
 psycopg2 = "*"
 googlemaps = "*"
+pillow = "*"
 
 [dev-packages]
 
