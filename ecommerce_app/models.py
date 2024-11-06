@@ -2,10 +2,7 @@ from django.db import models
 
 from django.contrib.auth.models import User
 
-user = User.objects.get(username='DG')
-user.is_staff = True
-user.is_superuser = True
-user.save()
+
 
 # Create your models here.
 
