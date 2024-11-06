@@ -1,11 +1,11 @@
 # DG's Golf Shop
 
-![App Screenshot](assets/DG's%20Golf%20Shop%20screenshot2.png)
+![App Screenshot](ecommercegolf/assets/DG's%20Golf%20Shop%20screenshot2.png)
 
 Welcome to **DG's Golf Shop** – an e-commerce web application built with Django that allows users to browse and purchase golf products, find nearby golf courses, and manage their shopping cart and order history.
 
 
-
+- **App Link**: [DG's Golf App](https://ecommercegolf-34d65b8238a4.herokuapp.com/)
 - **Project Link**: [GitHub Repository](https://github.com/Devin-Elhefe/E-commerce-Django-App-Project.git)
 - **Trello Board**: [ERD/Wirefram/Userstory](https://trello.com/invite/b/6723ce29913de2584f4291e7/ATTIe7642b277f03a7efeafcefae7392705b683E254A/e-commerce-django-crud-app-project)
 
