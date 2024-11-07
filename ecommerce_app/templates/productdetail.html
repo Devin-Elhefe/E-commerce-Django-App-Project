@@ -5,11 +5,11 @@
 {% block content %}
     <h1>{{ product.name }}</h1>
     <div class="product-details">
-        {% if product.image %}
-            <img src="{{ product.image.url }}" alt="{{ product.name }}">
-        {% else %}
-            <p>No image available for this product.</p>
-        {% endif %}
+        <img 
+            src="{% static 'images/product_images/' %}{{ product.name|lower }}.png" 
+            alt="{{ product.name }}"
+            onerror="this.onerror=null; this.src='{% static 'images/product_images/default.jpg' %}';"
+        >
         <p>{{ product.description }}</p>
         <p>Price: ${{ product.price }}</p>
         <p>Stock: {{ product.stock }}</p>

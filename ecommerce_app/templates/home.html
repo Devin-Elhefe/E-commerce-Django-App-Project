@@ -8,9 +8,11 @@
     <div class="featured-products">
         {% for product in featured_products %}
             <div class="product-item">
-                {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}">
-                {% endif %}
+                <img 
+                    src="{% static 'images/product_images/' %}{{ product.name|lower }}.png" 
+                    alt="{{ product.name }}"
+                    onerror="this.onerror=null; this.src='{% static 'images/product_images/default.jpg' %}';"
+                >
                 <h2>{{ product.name }}</h2>
                 <p>{{ product.description|truncatechars:100 }}</p>
                 <p>Price: ${{ product.price }}</p>
